@@ -36,6 +36,8 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/tutorial.routes")(app);
+require("./app/routes/auth.routes")(app);
+require("./app/routes/user.routes")(app);
 
 //port
 const PORT = process.env.PORT || 8080;
@@ -43,12 +45,11 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
     if (!err && count === 0) {
       new Role({
-        name: "viewer",
+        name: "user",
       }).save((err) => {
         if (err) {
           console.log("error", err);

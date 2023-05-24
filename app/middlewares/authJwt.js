@@ -4,10 +4,10 @@ const db = require("../models");
 const User = db.user;
 const Role = db.role;
 
-verfiyToken = (req, res, next) => {
+verifyToken = (req, res, next) => {
   let token = req.headers["x=access-token"];
   if (!token) {
-    return res.status(403).send({ message: "no token provided" });
+    return res.status(403).send({ message: "No token provided" });
   }
   jwt.verify(token, config.secret, (err, decoded) => {
     if (err) {
@@ -75,7 +75,7 @@ isEditor = (req, res, next) => {
 };
 
 const authJwt = {
-  verfiyToken,
+  verifyToken,
   isCreator,
   isEditor,
 };

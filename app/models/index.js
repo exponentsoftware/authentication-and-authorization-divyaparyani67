@@ -13,6 +13,6 @@ db.tutorials = require("./tutorial.model");
 db.user = require("./user.model");
 db.role = require("./role.model");
 
-db.ROLES = ["creator", "editor", "viewer"];
+db.ROLES = ["creator", "editor", "user"];
 
 module.exports = db;
